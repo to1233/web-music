@@ -6,7 +6,7 @@ export default({
         songId: "",// 音乐ID
         songTitle: "", // 歌名
         songUrl: "", // 音乐url
-        songPic: `/img/songPic/tubiao.jpg`, // 歌曲图标
+        songPic: `img/songPic/tubiao.jpg`, // 歌曲图片
         singerName: "", // 歌手名
         lyric: [], // 处理后的歌词数据
 

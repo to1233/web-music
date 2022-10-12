@@ -1,10 +1,10 @@
 <template>
     <div>
         <el-container>
-            <el-side>
+            <el-aside class="album-slide">
                 <el-image class="album-img" fit="contain" :src="imageUrl(songDetails.pic)" />
                 <h3 class="album-info">{{songDetails.title}}</h3>
-            </el-side>
+            </el-aside>
 
             <el-main>
                 <h1>简介</h1>
@@ -137,10 +137,6 @@
     }
 
     @media screen and (min-width: $sm) {
-        .album-slide {
-            position: fixed;
-            width: 400px;
-        }
         .album-main {
             min-width: 600px;
             padding-right: 10vw;

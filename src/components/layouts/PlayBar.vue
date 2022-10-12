@@ -73,10 +73,20 @@
         },
         computed: {
           ...mapGetters([
+              "userId",
               "isPlay", // 播放状态
+              "playBtnIcon", // 播放状态的图标
+              "songId", // 音乐id
+              "songUrl", // 音乐地址
+              "songTitle", // 歌名
+              "singerName", // 歌手名
+              "songPic", // 歌曲图片
               "curTime", // 当前音乐的播放位置
               "duration", // 音乐时长
+              "currentPlayList",
+              "currentPlayIndex", // 当前歌曲在歌曲列表的位置
               "showAside", // 是否显示侧边栏
+              "autoNext", // 用于触发自动播放下一首
           ])
         },
         watch:{
@@ -105,10 +115,6 @@
             // 滑动时间
             changeTime() {
                 this.$store.commit("setChangeTime", this.duration * (this.nowTime * 0.01));
-            },
-
-            nextSong() {
-
             },
 
         }
