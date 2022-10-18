@@ -36,6 +36,11 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import("@/views/singer/Singer.vue"),
       },
       {
+        path: "/singer-detail",
+        name: "singer-detail",
+        component: () => import("@/views/singer/SingerDetail.vue"),
+      },
+      {
         path: "/sign-in",
         name: "sign-in",
         component: () => import("@/views/SignUp.vue"),
@@ -51,7 +56,7 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import("@/views/search/Search.vue"),
       },
       {
-        path: "/lyric/:id",
+        path: "/lyric",
         name: "lyric",
         component: () => import("@/views/Lyric.vue"),
       },

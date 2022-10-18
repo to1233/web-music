@@ -110,7 +110,7 @@
                 this.$store.commit("setIsPlay", this.isPlay ? false : true);
             },
             // 是否显示侧边栏
-            changeAside() {
+                changeAside() {
                 this.$store.commit("setShowAside", !this.showAside);
                 console.log(!this.showAside);
             },
@@ -118,6 +118,10 @@
             changeTime() {
                 this.$store.commit("setChangeTime", this.duration * (this.nowTime * 0.01));
             },
+
+            goPlayerPage() {
+                this.$router.push({path: '/lyric', query: {itemId: this.songId  }});
+            }
 
         }
 

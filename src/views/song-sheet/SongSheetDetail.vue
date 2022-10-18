@@ -22,8 +22,6 @@
                 </div>
                 <!-- 歌曲-->
                 <SongList :songList="currentSongList"></SongList>
-                <!-- 评论-->
-                <Comment :playId="songListId" :type="1"></Comment>
             </el-main>
 
         </el-container>

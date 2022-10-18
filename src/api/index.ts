@@ -1,5 +1,6 @@
 
 import { service as  request , getBaseURL } from '@/utils/request';
+import get = Reflect.get;
 // 获取分页歌单
 export function getSongList(data) {
     return request({
@@ -100,8 +101,6 @@ export function  deleteUser(userId) {
 
 }
 
-
-
 /**
  * 根据用户id来查询用户详情信息
  * @param id 用户id
@@ -123,6 +122,17 @@ export function updateUserMsg(userInfo) {
         url: 'user/updateUserMsg',
         method : 'post',
         data: userInfo
+    })
+}
+
+/**
+ * 根据歌手id来查询歌手信息详情
+ * @param singerId 歌手id
+ */
+export function getSingerInfoById(singerId) {
+    return request({
+        url:`singer/singerInfoById/${singerId}`,
+        method: 'get',
     })
 }
 
@@ -160,6 +170,15 @@ export function getSongOfSingerName(singerName) {
         method: 'get'
     })
 }
+
+export function getSongOfSingerId(singerId) {
+    return request({
+        url: `song/singer/detail/${singerId}`,
+        method: 'get'
+    })
+}
+
+
 
 /**
  * 根据歌单名字来查询出对应的歌单信息

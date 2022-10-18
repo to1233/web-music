@@ -40,6 +40,8 @@ export default defineComponent({
     const lyricArr = ref([]); // 当前歌曲的歌词
     const songId = computed(() => store.getters.songId); // 歌曲ID
     const lyric = computed(() => store.getters.lyric); // 歌词
+    console.log('12312');
+    console.log(lyric);
     const currentPlayList = computed(() => store.getters.currentPlayList); // 存放的音乐
     const currentPlayIndex = computed(() => store.getters.currentPlayIndex); // 当前歌曲在歌曲列表的位置
     const curTime = computed(() => store.getters.curTime);
