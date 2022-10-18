@@ -8,7 +8,7 @@ import { ComponentCustomProperties } from "vue";
 import { Store } from "vuex";
 import "./assets/icons/index";
 import "./assets/css/index.scss";
-
+import * as ElIconModules from '@element-plus/icons-vue'
 declare  module "@vue/runtime-core" {
     interface State {
         count: number;
@@ -18,6 +18,9 @@ declare  module "@vue/runtime-core" {
         $store: Store<State>;
     }
 }
-
-
-createApp(App).use(store).use(router).use(ElementPlus).mount('#app')
+const app=createApp(App)
+// 统一注册el-icon图标
+for(let iconName in ElIconModules){
+    app.component(iconName,ElIconModules[iconName])
+}
+app.use(store).use(router).use(ElementPlus).mount('#app')

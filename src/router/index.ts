@@ -35,6 +35,42 @@ const routes: Array<RouteRecordRaw> = [
         name: "singer",
         component: () => import("@/views/singer/Singer.vue"),
       },
+      {
+        path: "/sign-in",
+        name: "sign-in",
+        component: () => import("@/views/SignUp.vue"),
+      },
+      {
+        path: "/sign-up",
+        name: "sign-up",
+        component: () => import("@/views/SignIn.vue"),
+      },
+      {
+        path: "/search",
+        name: "search",
+        component: () => import("@/views/search/Search.vue"),
+      },
+      {
+        path: "/lyric/:id",
+        name: "lyric",
+        component: () => import("@/views/Lyric.vue"),
+      },
+      {
+        path: "/personal",
+        name: "personal",
+        meta: {
+          requireAuth: true,
+        },
+        component: () => import("@/views/personal/Personal.vue"),
+      },
+      {
+        path: "/setting",
+        name: "setting",
+        meta: {
+          requireAuth: true,
+        },
+        component: () => import("@/views/setting/Setting.vue"),
+      }
     ]
   }
 ]

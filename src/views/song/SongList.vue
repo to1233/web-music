@@ -22,7 +22,7 @@
             const { songList } = toRefs(props);
            function  handleClick(row) {
                 playMusic(row,songList);
-            };
+            }
            return {
                handleClick
            }

@@ -4,17 +4,25 @@ import { getToken} from "@/utils/auth";
 import errorCode from "@/utils/errorCode";
 import { ElMessage,ElNotification  } from 'element-plus'
 
-axios.defaults.headers['Content-type'] = 'application/json;charset=utf-8'
+
+axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
+
 const  BASE_URL = 'http://localhost:8088';
 // 创建axios 实例
 const service  = axios.create({
     // axios 中请求配置有baseUrl选项，表示请求URL公共部分
     baseURL: BASE_URL,
-    timeout: 10000
+    timeout: 10000,
 })
 
 // request 拦截器
 service.interceptors.request.use(config => {
+
+    const token = getToken();
+    if (token) {
+        //请求携带自定义token
+        config.headers['AuthToken'] = token;
+    }
    // get请求映射params 参数
     if (config.method === 'get' && config.params) {
         let url = config.url + '?';

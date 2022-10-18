@@ -50,6 +50,128 @@ export  function findRankBySheetId(sheetId) {
     })
 }
 
+/**
+ * 用户登录
+ * @param userInfo
+ */
+export function loginByUserName(userInfo) {
+    return request({
+        url: 'loginByUserName',
+        method: 'post',
+        data: userInfo,
+    })
+}
+
+
+/**
+ * 用户登录 手机登录
+ * @param userInfo
+ */
+export function loginByPhone(userInfo) {
+    return request({
+        url: 'loginByPhone',
+        method: 'post',
+        data: userInfo,
+    })
+}
+
+// 更新用户头像
+export function uploadUrl(userId) {
+    return `${getBaseURL()}/user/avatar/update?id=${userId}`;
+}
+
+/**
+ * 注册信息
+ */
+export function  signUp(userInfo) {
+    return request({
+        url: 'signUp',
+        method: 'post',
+        data: userInfo,
+    })
+}
+
+// 注销账户
+export function  deleteUser(userId) {
+    return request({
+        url:`user/cancel/${userId}`,
+        method: 'get'
+    })
+
+}
+
+
+
+/**
+ * 根据用户id来查询用户详情信息
+ * @param id 用户id
+ */
+export function getUserId(id){
+    return request({
+        url: `user/detail/${id}`,
+        method: 'get',
+    })
+}
+
+
+/**
+ * 更新用户信息
+ * @param userInfo 待更新的用户信息
+ */
+export function updateUserMsg(userInfo) {
+    return request({
+        url: 'user/updateUserMsg',
+        method : 'post',
+        data: userInfo
+    })
+}
+
+/**
+ * 更新用户密码
+ * @param passwordInfo
+ */
+export function updateUserPassword(passwordInfo) {
+    return  request({
+        url: 'user/updatePassword',
+        method: 'post',
+        data: passwordInfo
+    })
+}
+
+
+/**
+ * 获取用户收藏的歌曲列表
+ * @param id 用户id
+ */
+export  function getUseCollSongList(id) {
+    return  request({
+        url: `user/getCollectInfo/${id}`,
+        method: 'get'
+    })
+}
+
+/**
+ * 根据歌手名来查询歌曲集合
+ * @param singerName 歌手名
+ */
+export function getSongOfSingerName(singerName) {
+    return request({
+        url: `song/singerName/${singerName}`,
+        method: 'get'
+    })
+}
+
+/**
+ * 根据歌单名字来查询出对应的歌单信息
+ * @param title
+ */
+export function getSongSheetOfLikeTitle(title) {
+    return request({
+        url: `songSheet/likeTitle/${title}`,
+        method: 'get'
+    })
+}
+
 
 
 /**

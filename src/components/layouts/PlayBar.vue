@@ -17,7 +17,7 @@
 
             <div class="song-ctr">
 
-                <MyMusicIcon class="yin-play-show" :icon="playStateList[playStateIndex]" @click="changePlayState"></MyMusicIcon>
+                <MyMusicIcon class="yin-play-show" :icon="[playStateIndex]" @click="changePlayState"></MyMusicIcon>
                 <!-- 上一首-->
                 <MyMusicIcon class="yin-play-show" :icon="iconList.SHANGYISHOU" @click="changePlayState"></MyMusicIcon>
                 <!--播放-->
@@ -51,7 +51,7 @@
               endTime: "00:00",
               nowTime: 0, // 进度条位置
               toggle: true,
-              playButtonIcon: Icon.BOFANG,  // 触发播放的按钮图标所以是 三角
+              playButtonIcon: Icon.BOFANG,  // 触发播放的按钮图标所以是 三角 ,暂停为 双竖线
               volume: 50,
               playState: Icon.XUNHUAN,
               playStateList: [Icon.XUNHUAN, Icon.LUANXU],
@@ -100,12 +100,14 @@
             autoNext() {
                 this.nextSong();
             }*/
+            isPlay(value) {
+                 this.playButtonIcon =  value ? Icon.ZANTING : Icon.BOFANG;
+            },
         },
         methods: {
             // 播放与暂停
             togglePlay() {
                 this.$store.commit("setIsPlay", this.isPlay ? false : true);
-                this.playButtonIcon = this.isPlay ? Icon.ZANTING : Icon.BOFANG;
             },
             // 是否显示侧边栏
             changeAside() {
